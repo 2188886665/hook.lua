@@ -41,6 +41,23 @@ hook.remove(func, hook)
 ```
 > Remove a hook from a function.
 
+```lua
+hook.clear(func)
+```
+> Removes all hooks from a function.
+
+```lua
+hook.count(func)
+```
+> Counts the amount of hooks a function has (Note that
+> the same hook can be added multiple times).
+
+```lua
+hook.gethooks(func)
+```
+> Returns an array (indexed table), containing all the hooks.
+
+
 
 ## Example
 
@@ -71,6 +88,19 @@ test = hook.add(test, testHook)
 test = hook.add(test, testHook2)
 
 
+print(hook.count(test))
+-- Prints:
+-- 2
+
+
+for i, hook in ipairs(hook.gethooks(test)) do
+	print("Hook #" .. i .. ": " .. tostring(hook))
+end
+-- Prints:
+-- Hook #1: function: ........
+-- Hook #2: function: ........
+
+
 test("Hello World")
 -- Prints:
 -- testHook("Hello World")
@@ -89,13 +119,24 @@ hook.call(test, "Hooks Only")
 -- testHook2("Hooks Only")
 
 
+-- Best for performance:
 test = hook.remove(test, testHook)
+
+-- Also works:
+hook.remove(test, testHook)
 
 
 test("Hello Again")
 -- Prints:
 -- testHook2("Hello Again")
 -- test("Hello Again")
+
+
+-- Best for performance:
+test = hook.clear(test)
+
+-- Also works:
+hook.clear(test)
 ```
 
 

@@ -1,10 +1,10 @@
 
 -- Author: Vallentin <mail@vallentinsource.com>
 -- Website: http://vallentinsource.com
--- GitHub: https://github.com/MrVallentin/intercept.lua
+-- GitHub: https://github.com/MrVallentin/hook.lua
 --
 -- Date Created: November 22, 2015
--- Last Modified: March 08, 2015
+-- Last Modified: March 10, 2015
 
 --[[
 The MIT License (MIT)
@@ -115,7 +115,6 @@ function hook.remove(hookedfunc, hook)
 		for i = #hookedfunc.__hooks, 1, -1 do
 			if hookedfunc.__hooks[i] == hook then
 				table.remove(hookedfunc.__hooks, i)
-				break
 			end
 		end
 		
@@ -125,6 +124,38 @@ function hook.remove(hookedfunc, hook)
 	end
 	
 	return hookedfunc
+end
+
+function hook.clear(hookedfunc)
+	if ishookedfunc(hookedfunc) then
+		hookedfunc.__hooks = {}
+		
+		return hookedfunc.__func
+	end
+	
+	return hookedfunc
+end
+
+function hook.count(hookedfunc)
+	if ishookedfunc(hookedfunc) then
+		return #hookedfunc.__hooks
+	end
+	
+	return 0
+end
+
+function hook.gethooks(hookedfunc)
+	if ishookedfunc(hookedfunc) then
+		local hooks = {}
+		
+		for i = 1, #hookedfunc.__hooks, 1 do
+			hooks[i] = hookedfunc.__hooks[i]
+		end
+		
+		return hooks
+	end
+	
+	return nil
 end
 
 
