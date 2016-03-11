@@ -4,7 +4,7 @@
 -- GitHub: https://github.com/MrVallentin/hook.lua
 --
 -- Date Created: November 22, 2015
--- Last Modified: March 10, 2015
+-- Last Modified: March 11, 2015
 
 --[[
 The MIT License (MIT)
@@ -31,17 +31,25 @@ SOFTWARE.
 --]]
 
 
+-- In Lua 5.2 unpack() was moved into the table library
+local unpack = unpack or table.unpack
+
+
 local hook = {}
+
+
+hook._VERSION = "hook.lua 1.0"
+hook._URL = "https://github.com/MrVallentin/hook.lua"
 
 
 local function callhooks(hookedfunc, ...)
 	local result = nil
 	
 	for i = 1, #hookedfunc.__hooks, 1 do
-		result = hookedfunc.__hooks[i](...)
+		result = {hookedfunc.__hooks[i](...)}
 		
-		if result ~= nil then
-			return result
+		if result ~= nil and #result > 0 then
+			return unpack(result)
 		end
 	end
 	
@@ -56,10 +64,10 @@ local function newhook(func, hook)
 	
 	setmetatable(hookedfunc, {
 		__call = function(func, ...)
-			local result = callhooks(hookedfunc, ...)
+			local result = {callhooks(hookedfunc, ...)}
 			
-			if result ~= nil then
-				return result
+			if result ~= nil and #result > 0 then
+				return unpack(result)
 			end
 			
 			return hookedfunc.__func(...)
