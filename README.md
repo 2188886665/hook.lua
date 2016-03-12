@@ -143,4 +143,4 @@ hook.clear(test)
 #### License
 
 This module is shared under the MIT license, and is therefore free to use, shared, distribute and modify.
-See [LICENSE](http://github.com/MrVallentin/hook.lua/LICENSE) for more details.
+See [LICENSE](https://github.com/MrVallentin/hook.lua/blob/master/LICENSE) for more details.
