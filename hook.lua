@@ -1,5 +1,5 @@
 
--- Author: Vallentin <mail@vallentinsource.com>
+-- Author: Christian Vallentin <mail@vallentinsource.com>
 -- Website: http://vallentinsource.com
 -- GitHub: https://github.com/MrVallentin/hook.lua
 --
@@ -9,7 +9,7 @@
 --[[
 The MIT License (MIT)
 
-Copyright (c) 2016 Vallentin
+Copyright (c) 2016 Christian Vallentin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
