@@ -8,6 +8,8 @@ anything other than `nil`, the execution of further hooks and
 the actual (intercepted) function is stopped. The returned values of the hook is
 returned to the original caller of the function.
 
+*Developed and tested using Lua 5.1 and Lua 5.2.*
+
 
 ## API References
 

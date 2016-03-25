@@ -5,6 +5,8 @@
 --
 -- Date Created: November 22, 2015
 -- Last Modified: March 11, 2015
+--
+-- Developed and tested using Lua 5.1 and Lua 5.2
 
 --[[
 The MIT License (MIT)
