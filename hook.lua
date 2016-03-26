@@ -1,7 +1,7 @@
 
 -- Author: Christian Vallentin <mail@vallentinsource.com>
 -- Website: http://vallentinsource.com
--- GitHub: https://github.com/MrVallentin/hook.lua
+-- Repository: https://github.com/MrVallentin/hook.lua
 --
 -- Date Created: November 22, 2015
 -- Last Modified: March 11, 2015
